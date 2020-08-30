@@ -1,1 +1,34 @@
-<p>post-create works!</p>
+<main class="main">
+  <section class="post-create">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form method="POST" 
+            class="post-create__form credential mb-4">
+            <mat-card class="post-create__card">
+              <mat-form-field class="w-100">
+                <textarea class="credential__textarea"
+                  name="post"
+                  placeholder="Enter Values..."
+                  matInput
+                  [(ngModel)]="entertedValue"></textarea>
+              </mat-form-field>
+
+              <button class="px-4" mat-raised-button
+                color="primary"
+                (click)="dataPush()">
+                Save
+              </button>
+            </mat-card>
+          </form>
+
+          <mat-card>
+            <p class="m-0" *ngFor="let item of post">
+              {{ item }}
+            </p>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

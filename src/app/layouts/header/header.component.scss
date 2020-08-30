@@ -1,0 +1,7 @@
+@import "~@angular/material/theming";
+
+.header {
+  &__matCover {
+    background-color: mat-color($mat-pink, 500);
+  }
+}

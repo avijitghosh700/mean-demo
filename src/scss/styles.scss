@@ -1,4 +1,27 @@
-@import './variables';
+@import "~@angular/material/theming";
+@import "variables";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button,
+button:focus {
+  outline: none !important;
+}
+
+.main {
+  min-height: 100vh;
+}
+
+.credential {
+  &__textarea {
+    min-height: 100px;
+  }
+}

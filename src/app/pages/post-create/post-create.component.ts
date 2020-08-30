@@ -12,4 +12,11 @@ export class PostCreateComponent implements OnInit {
   ngOnInit() {
   }
 
+  entertedValue: any = null;
+  post: any[] = [];
+
+  dataPush() {
+    this.post = [];
+    this.post.push(this.entertedValue);
+  }
 }
