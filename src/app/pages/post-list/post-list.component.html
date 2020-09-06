@@ -1,0 +1,35 @@
+<mat-accordion class="post-list"
+  multi="true"
+  *ngIf="posts.length > 0">
+  <mat-expansion-panel class="post-list__item" 
+    *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+
+    <div class="post-data mb-3">
+      {{ post.content }}
+    </div>
+
+    <mat-divider class="mb-3"></mat-divider>
+
+    <div class="post-list__btnGrp text-right">
+      <button type="button"
+        class="mr-3" 
+        mat-raised-button
+        color="accent">
+        Edit
+      </button>
+
+      <button type="button" 
+        mat-raised-button
+        color="warn">
+        Delete
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="fallback" *ngIf="posts.length == 0">
+  <p class="mat-body-1 text-white">No posts added yet.</p>
+</div>
