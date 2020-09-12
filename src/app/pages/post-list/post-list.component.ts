@@ -15,19 +15,20 @@ export class PostListComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.posts = this.postService.getPost();
-    
-    this.postSub = this.postService.updatePostListener()
-    .subscribe(
-      (res: Posts[]) => {
-        this.posts = res;
-        console.log(res);
-      }
-    );
+    this.postService.getPost();
+    this.UpdateView();
   }
 
   ngOnDestroy() {
     this.postSub.unsubscribe();
   }
 
+  UpdateView() {
+    this.postSub = this.postService.updatePostListener()
+    .subscribe(
+      (res: Posts[]) => {
+        this.posts = res;
+      }
+    );
+  }
 }
