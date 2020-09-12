@@ -29,6 +29,7 @@ app.use((req, res, next) => {
 /* app.use() --> We could use this but, this will not enforce any specific method to handle the request. 
 So we should use the methods below for different http request types */
 
+/*NOTE:- I am not using next() method here because I don't want to handle this requests using another handler. */ 
 app.post('/api/create-post', (req, res, next) => {
   const post = req.body;
   console.log(post);
