@@ -51,11 +51,12 @@ So we should use the methods below for different http request types */
 
 /*NOTE:- I am not using next() function here because I don't want to handle this requests using another handler. */
 app.post("/api/create-post", (req, res, next) => {
+  // Preparing the data as per the schema that we defined in post.js file.
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
   });
-  post.save();
+  post.save(); // Storing the data to database.
   console.log(post);
 
   res.status(201).json({
@@ -65,6 +66,7 @@ app.post("/api/create-post", (req, res, next) => {
 });
 
 app.get("/api/posts", (req, res, next) => {
+  // Fetching the data from the database.
   Post.find()
     .then((docs) => {
       res.status(200).json({
