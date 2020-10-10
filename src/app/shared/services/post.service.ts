@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Posts } from '../models/posts.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PostService {
   private Post: Posts[] = [];
-  private postUpdate = new Subject<Posts[]>();
+  public postUpdate = new Subject<Posts[]>();
 
   constructor(public http: HttpClient) { }
 
@@ -46,8 +46,10 @@ export class PostService {
     .subscribe(
       (res) => {
         let success = res['success'];
+        let id = res['id'];
 
         if (success) {
+          post.id = id;
           this.Post.push(post);
           this.postUpdate.next([...this.Post]);
         }
@@ -58,5 +60,9 @@ export class PostService {
         console.log(error);
       }
     )
+  }
+
+  deletePost(postID: string): Observable<any> {
+    return this.http.delete(`${environment.url}api/delete-post/${postID}`);
   }
 }

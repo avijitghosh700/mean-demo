@@ -56,13 +56,16 @@ app.post("/api/create-post", (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
   });
-  post.save(); // Storing the data to database.
-  console.log(post);
+  post.save() // Storing the data to database.
+    .then((result) => {
+      res.status(201).json({
+        success: true,
+        message: "Post created successfully",
+        id: result._id,
+      });
 
-  res.status(201).json({
-    success: true,
-    message: "Post created successfully",
-  });
+      console.log(result);
+    });
 });
 
 app.get("/api/posts", (req, res, next) => {
@@ -80,6 +83,18 @@ app.get("/api/posts", (req, res, next) => {
           }
         }),
       });
+    })
+});
+
+app.delete('/api/delete-post/:id', (req, res, next) => {
+  console.log(req.params);
+
+  Post.deleteOne({ _id: `${req.params.id}` })
+    .then((result) => {
+      console.log(result);
+      res.status(200).json({
+        message: 'Post deleted successfully'
+      })
     })
 });
 
