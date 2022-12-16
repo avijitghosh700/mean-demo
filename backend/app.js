@@ -12,7 +12,7 @@ const mongooseOpts = {
 
 mongoose
   .connect(
-    'mongodb+srv://avijit:9c1rJq1uW2WACg15@stage-0.fp8i1.gcp.mongodb.net/mean-demo?retryWrites=true&w=majority',
+    'mongodb+srv://avijit:mongo333avijit@stage-0.fp8i1.gcp.mongodb.net/mean-demo?retryWrites=true&w=majority',
     mongooseOpts
   )
   .then(() => {

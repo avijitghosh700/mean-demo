@@ -1,35 +1,20 @@
 <div class="post-create">
-  <form class="post-create__form credential mb-4"
-    (submit)="dataPush(formData)" #formData="ngForm">
+  <form class="post-create__form credential mb-4" (submit)="dataPush(formData)" #formData="ngForm">
     <mat-card class="post-create__card">
       <mat-form-field class="w-100">
-        <input type="text" 
-          name="title" 
-          placeholder="Title" 
-          required
-          matInput
-          ngModel
-          #title="ngModel">
+        <input type="text" name="title" placeholder="Title" required matInput ngModel #title="ngModel">
         <mat-error *ngIf="title.invalid"> Post title is required </mat-error>
       </mat-form-field>
-  
+
       <mat-form-field class="w-100">
-        <textarea class="credential__textarea" 
-          name="content" 
-          placeholder="Content..." 
-          required
-          matInput
-          ngModel
+        <textarea class="credential__textarea" name="content" placeholder="Content..." required matInput ngModel
           #content="ngModel">
         </textarea>
         <mat-error *ngIf="content.invalid"> Post content is required </mat-error>
       </mat-form-field>
-      
+
       <div class="post-create__btnGrp mt-3">
-        <button type="submit" 
-          class="px-4" 
-          mat-raised-button 
-          color="primary">
+        <button type="submit" class="px-4" mat-raised-button color="primary">
           Save
         </button>
       </div>

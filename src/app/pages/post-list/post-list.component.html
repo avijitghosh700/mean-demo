@@ -1,8 +1,5 @@
-<mat-accordion class="post-list"
-  multi="true"
-  *ngIf="posts.length > 0">
-  <mat-expansion-panel class="post-list__item" 
-    *ngFor="let post of posts">
+<mat-accordion class="post-list" multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel class="post-list__item" *ngFor="let post of posts">
     <mat-expansion-panel-header>
       {{ post.title }}
     </mat-expansion-panel-header>
@@ -14,17 +11,11 @@
     <mat-divider class="mb-3"></mat-divider>
 
     <div class="post-list__btnGrp text-right">
-      <button type="button"
-        class="mr-3" 
-        mat-raised-button
-        color="accent">
+      <button type="button" class="mr-3" mat-raised-button color="accent">
         Edit
       </button>
 
-      <button type="button" 
-        mat-raised-button
-        color="warn"
-        (click)="DeletePost(post.id)">
+      <button type="button" mat-raised-button color="warn" (click)="DeletePost(post.id)">
         Delete
       </button>
     </div>
